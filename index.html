@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mohammed Afnan | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg: #0f2027;
+  --card: rgba(0,0,0,0.6);
+  --text: #fff;
+  --accent: #00d4ff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.section {
+  display: none;
+  min-height: 100vh;
+  padding: 120px 10%;
+}
+
+.section.active {
+  display: block;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+
+.profile {
+  width: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  display: block;
+  margin: auto;
+}
+
+h1,h2 { text-align: center; color: var(--accent); }
+
+.project-card {
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover { transform: translateY(-4px); }
+
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.project-card.active .project-details { max-height: 500px; }
+
+.status { font-size: 0.9rem; color: #c33764; }
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <b>My Portfolio</b>
+  <div>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('projects')">Projects</a>
+    <a onclick="showSection('contact')">Contact</a>
+  </div>
+</nav>
+
+<section id="home" class="section active">
+  <div class="container">
+    <img src="afnan.jpg" class="profile">
+    <h1>Mohammed Afnan S</h1>
+    <p style="text-align:center;">BCA (Data Analytics, Cyber Security, Cloud Computing)</p>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container">
+    <h2>About</h2>
+    <div class="card">
+      To obtain a challenging position in the fields of Data Analytics, Cyber Security, and Cloud Computing where I can leverage my analytical abilities, programming expertise, and statistical techniques to derive meaningful insights, strengthen security, enable data-driven decision-making, and contribute to the organization’s innovation and growth.
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2>Projects</h2>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>Vehicle Charging Point Booking System <span class="status">(Ongoing)</span></h3>
+      <div class="project-details">
+        <p>Developing a web-based system for locating, booking, and managing EV charging stations efficiently.</p>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>Astram IoT Project – Feb 2025</h3>
+      <div class="project-details">
+        <ul>
+          <li>RFID-based system that detects ambulances and clears traffic signals automatically.</li>
+          <li>Reduces emergency response time and removes manual intervention.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>U-Turn Accident Prevention (IoT) – Aug 2025</h3>
+      <div class="project-details">
+        <ul>
+          <li>Ultrasonic & IR sensor-based system for blind turn accident prevention.</li>
+          <li>Alerts drivers using LED and buzzer warnings in hilly areas.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="card">Email: mohammedafnan391@gmail.com.in</div>
+  </div>
+</section>
+
+<footer>© 2025 Mohammed Afnan</footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function toggleProject(card) {
+  card.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
